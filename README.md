@@ -1,46 +1,112 @@
-# Node.js Express & MongoDB: CRUD Rest APIs
+# 📝 Notes API
 
-For more detail, please visit:
-> [Node.js, Express & MongoDb: Build a CRUD Rest Api example](https://bezkoder.com/node-express-mongodb-crud-rest-api/)
+A simple **RESTful API** built with **Node.js**, **Express**, and **MongoDB** that allows users to create, read, update, and delete notes.
 
-> [Server side Pagination in Node.js with MongoDB and Mongoose](https://bezkoder.com/node-js-mongodb-pagination/)
+---
 
-Security:
-> [Node.js + MongoDB: User Authentication & Authorization with JWT](https://bezkoder.com/node-js-mongodb-auth-jwt/)
+## 🚀 Features
 
-Associations:
-> [MongoDB One-to-One relationship tutorial with Mongoose examples](https://bezkoder.com/mongoose-one-to-one-relationship-example/)
+- 📄 Create new notes  
+- 📥 Retrieve all notes  
+- ✏️ Update a note by ID  
+- ❌ Delete a note by ID  
 
-> [MongoDB One-to-Many Relationship tutorial with Mongoose examples](https://bezkoder.com/mongoose-one-to-many-relationship/)
+---
 
-> [MongoDB Many-to-Many Relationship with Mongoose examples](https://bezkoder.com/mongodb-many-to-many-mongoose/)
+## 🛠️ Tech Stack
 
-Fullstack:
-> [Vue.js + Node.js + Express + MongoDB example](https://bezkoder.com/vue-node-express-mongodb-mevn-crud/)
+- **Backend:** Node.js, Express.js  
+- **Database:** MongoDB with Mongoose  
+- **Environment:** dotenv  
 
-> [Angular 8 + Node.js + Express + MongoDB example](https://bezkoder.com/angular-mongodb-node-express/)
+---
 
-> [Angular 10 + Node.js + Express + MongoDB example](https://bezkoder.com/angular-10-mongodb-node-express/)
+## 📦 Installation
 
-> [Angular 11 + Node.js + Express + MongoDB example](https://bezkoder.com/angular-11-mongodb-node-js-express/)
 
-> [Angular 12 + Node.js + Express + MongoDB example](https://bezkoder.com/angular-12-mongodb-node-js-express/)
+Install dependencies
 
-> [React + Node.js + Express + MongoDB example](https://bezkoder.com/react-node-express-mongodb-mern-stack/)
-
-Integration (run back-end & front-end on same server/port)
-> [Integrate React with Node.js Restful Services](https://bezkoder.com/integrate-react-express-same-server-port/)
-
-> [Integrate Angular with Node.js Restful Services](https://bezkoder.com/integrate-angular-10-node-js/)
-
-> [Integrate Vue with Node.js Restful Services](https://bezkoder.com/serve-vue-app-express/)
-
-## Project setup
-```
+bash
+Copy code
 npm install
-```
+Configure environment variables
 
-### Run
-```
-node server.js
-```
+Create a .env file in the root directory:
+
+env
+Copy code
+PORT=5000
+MONGODB_URI=your_mongodb_connection_string
+Start the development server
+
+bash
+Copy code
+npm start
+Server will run on: http://localhost:5000
+
+📡 API Endpoints
+➕ POST /notes
+Create a new note.
+
+Request Body:
+
+json
+Copy code
+{
+  "title": "My Note",
+  "content": "This is the content of the note."
+}
+Response:
+
+json
+Copy code
+{
+  "_id": "note_id",
+  "title": "My Note",
+  "content": "This is the content of the note.",
+  "createdAt": "timestamp"
+}
+📥 GET /notes
+Fetch all notes.
+
+Response:
+
+json
+Copy code
+[
+  {
+    "_id": "note_id",
+    "title": "My Note",
+    "content": "This is the content of the note.",
+    "createdAt": "timestamp"
+  },
+  ...
+]
+✏️ PUT /notes/:id
+Update a note by ID.
+
+Request Body:
+
+json
+Copy code
+{
+  "title": "Updated Title",
+  "content": "Updated Content"
+}
+Response:
+
+json
+Copy code
+{
+  "message": "Note updated successfully"
+}
+❌ DELETE /notes/:id
+Delete a note by ID.
+
+Response:
+
+json
+Copy code
+{
+  "message": "Note deleted successfully"
+}
